@@ -17,7 +17,7 @@ public class MemberLoginAction implements Action {
 		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean memberbean = new MemberBean();
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 	
 		memberbean.setMember_id(request.getParameter("id"));

@@ -39,12 +39,9 @@ public class ProductFrontController extends HttpServlet implements javax.servlet
 			forward.setRedirect(false);
 			forward.setPath("./Product_add.jsp");
 		}else if(command.equals("/main.po")) {
-			action = new MainAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("main.jsp");
 		}else if(command.equals("/ProductOrder.po")) {
 			forward=new ActionForward();
 			forward.setRedirect(false);
@@ -72,13 +69,6 @@ public class ProductFrontController extends HttpServlet implements javax.servlet
 			forward.setRedirect(false);
 			forward.setPath("./Product_list.jsp");
 		}else if(command.equals("/ProductInfoAction.po")) {
-	         action = new ProductInfoAction();
-	         try {
-	            forward = action.execute(request, response);
-	         }catch(Exception e) {
-	            e.printStackTrace();
-	         }
-	    }else if(command.equals("/cart/ProductInfoAction.po")) {
 	         action = new ProductInfoAction();
 	         try {
 	            forward = action.execute(request, response);
@@ -146,13 +136,6 @@ public class ProductFrontController extends HttpServlet implements javax.servlet
 			forward.setPath("./product/Product_modify.jsp");
 		}else if(command.equals("/ProductModifyView.po")) {
 			action = new ProductModifyView();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/ProductCatelistAction.po")) {
-			action = new ProductCatelistAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

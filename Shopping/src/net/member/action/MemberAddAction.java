@@ -15,9 +15,10 @@ import net.member.db.MemberDAO;
 
 public class MemberAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean memberbean = new MemberBean();
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 		
 		

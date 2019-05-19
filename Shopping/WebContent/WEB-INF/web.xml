@@ -40,6 +40,7 @@
     <servlet-name>ProductFrontController</servlet-name>
     <url-pattern>*.po</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>OrderFrontController</servlet-name>
     <servlet-class>
@@ -50,26 +51,7 @@
     <servlet-name>OrderFrontController</servlet-name>
     <url-pattern>*.oo</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>NewsFrontController</servlet-name>
-    <servlet-class>
-         net.news.action.NewsFrontController
-   </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>NewsFrontController</servlet-name>
-    <url-pattern>*.ne</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ReviewFrontController</servlet-name>
-    <servlet-class>
-         net.review.action.ReviewFrontController
-   </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReviewFrontController</servlet-name>
-    <url-pattern>*.re</url-pattern>
-  </servlet-mapping>
+  
   <servlet>
     <servlet-name>DeliveryFrontController</servlet-name>
     <servlet-class>
@@ -80,14 +62,5 @@
     <servlet-name>DeliveryFrontController</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>CartFrontController</servlet-name>
-    <servlet-class>
-			net.cart.action.CartFrontController
-	</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CartFrontController</servlet-name>
-    <url-pattern>*.co</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
