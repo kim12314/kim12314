@@ -33,7 +33,7 @@ public class OrderListAction implements Action{
 		session.setAttribute("orderbean", orderdao.getListOrder(id));
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("./order/Order_List.jsp");
 		orderdao.conClose();
 		return forward;

@@ -31,13 +31,15 @@
 					var profileImage = naverLogin.user.getProfileImage();
 					var birthday = naverLogin.user.getBirthday();			var uniqId = naverLogin.user.getId();
 					var age = naverLogin.user.getAge();
+					var id = naverLogin.user.getId();
+					var pw = naverLogin.user.getPassword();
 					if( email == undefined || email == null) {
 						alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
 						naverLogin.reprompt();
 						return;
 					}
 
-					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Shopping");
+					window.location.replace("MemberLoginAction?");
 				} else {
 					console.log("callback 처리에 실패하였습니다.");
 				}

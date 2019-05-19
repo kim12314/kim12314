@@ -250,13 +250,14 @@ public class ProductDAO {
 	}
 	
 	//상품 삭제
-	public boolean deleteProduct(int code) throws SQLException {
+	public boolean deleteProduct(int[] code) throws SQLException {
 		String sql = "delete from product where product_code = ?";
 		try {
+			for(int i=0;i<code.length;i++) {
 			pt = conn.prepareStatement(sql);
-			pt.setInt(1, code);
+			pt.setInt(1, code[i]);
 			pt.executeUpdate();
-			
+			}
 			return true;
 			
 		}catch(RuntimeException er) {

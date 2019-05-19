@@ -11,28 +11,27 @@ import net.action.ActionForward;
 import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
 
-public class reserveProductDeleteAction implements Action{
+public class ProductCatelistAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
-		ProductBean productbean = new ProductBean();
 		
-		productbean.setProduct_code(Integer.parseInt(request.getParameter("code")));
+		String cate = request.getParameter("category");
 		
-		
-		if(!productdao.deleteProduct(productbean.getProduct_code())) {
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('Deletion is failed try again')");
-				out.print("</script>");
-				out.close();
-				return null;
+		if(productdao.researchProduct(cate) == null) {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('There is no data please try again')");
+			out.print("</script>");
+			out.close();
+			return null;
 		}
-
+		
+		session.setAttribute("productcate", productdao.getCategory());
+		session.setAttribute("productbean", productdao.researchProduct(cate));
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-
-		forward.setPath("ProductListAction.po");
+		forward.setRedirect(false);
+		forward.setPath("./product/Product_list.jsp?cate="+cate);
 		productdao.conClose();
 		return forward;
 		

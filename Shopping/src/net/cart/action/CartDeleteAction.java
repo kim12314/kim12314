@@ -1,4 +1,4 @@
-package net.Order.action;
+package net.cart.action;
 
 import java.io.PrintWriter;
 
@@ -6,20 +6,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.cart.db.CartBean;
+import net.cart.db.CartDAO;
 import net.action.Action;
 import net.action.ActionForward;
-import net.Order.db.*;
+import net.cart.db.*;
 
-public class OrderRecallAction implements Action{
+public class CartDeleteAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
-		OrderDAO orderdao = new OrderDAO();
-		OrderBean orderbean = new OrderBean();
+		CartDAO cartdao = new CartDAO();
+		CartBean cartbean = new CartBean();
 		
-		orderbean.setOrder_num(Integer.parseInt(request.getParameter("num")));
+		cartbean.setCart_code(Integer.parseInt(request.getParameter("code")));
 		
 		
-		if(!orderdao.deleteOrder(orderbean.getOrder_num())) {
+		if(!cartdao.deleteCart(cartbean.getCart_code())) {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('Deletion is failed try again')");
@@ -30,9 +32,12 @@ public class OrderRecallAction implements Action{
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("DeliveryAction.do");
-		orderdao.conClose();
+
+		forward.setPath("CartListAction.co");
+		cartdao.conClose();
 		return forward;
 		
 	}
 }
+
+

@@ -1,4 +1,4 @@
-<%@page import="net.Order.db.OrderBean"%>
+﻿<%@page import="net.Order.db.OrderBean"%>
 <%@page import="net.member.db.MemberDAO"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -132,4 +132,3 @@ function input_Text(){
 </form>	
 </center>
 </body>
-</html>
