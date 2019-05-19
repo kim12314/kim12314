@@ -16,21 +16,17 @@
       <%if(session.getAttribute("id").equals("admin")){ %>
          <a href="AdminPage.mo">ADMINPAGE</a>
       <%}%>   
-         <a id="logout">LOGOUT</a>
+         <a id="logout">LOGOUT</a> 
          <script type="text/javascript">
          	$(document).ready(function(){
          		$("#logout").click(function(){
-         			var result = confirm("Are you sure you want to do this?");
-         			
+         			var result = confirm("Are you sure LOGOUT?");
          			if(result){
-         				 document.getElementById("logout").href = "MemberLogoutAction.mo";
-         			}else{
-         				
+         				location.href="MemberLogoutAction.mo";
          			}
          		});
          	});
-         </script>
-         
+         </script>        
    <%}else{ %>   
          <a href="MemberLoginForm.mo">LOGIN</a>
            
@@ -52,20 +48,8 @@
        
          <li><a href="media.jsp">MEDIA</a></li>
          
-         <li><a id="notice">NOTICE (only member)</a></li>
-         <script type="text/javascript">
-         	$(document).ready(function(){
-         		$("#notice").click(function(){
-         			var id = <%=session.getAttribute("id")%>;
-         			if(id == null){
-         				alert("You have to login to use this");
-         				location.replace("MemberLoginForm.mo");
-         			}else{
-         				location.href = "NewsListAction.ne";
-         			}
-         		});
-         	});
-         </script>
+         <li><a id="notice" href = "NewsListAction.ne">NOTICE (only member)</a></li>
+         
          <%List<String> cate = (List<String>)session.getAttribute("productcate"); %>
          <li><a href="#" id="current">PRODUCT</a>
             <ul>

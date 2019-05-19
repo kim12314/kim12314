@@ -99,11 +99,11 @@ label:hover {
 										<% for(CartBean cartbean : beans){%>
 										<tr>	
 											<td><%= cartbean.getCart_code() %></td>
-											<td><%= cartbean.getCart_image() %></td>
+											<td><img src="<%=cartbean.getCart_image()%>"/></td>
 											<td><%= cartbean.getCart_name() %></td>
-											<td><%= cartbean.getCart_price() %></td>
+											<td><%= cartbean.getCart_price() %>\</td>
 											<td><%= cartbean.getCart_count() %></td>
-											<td><%= cartbean.getCart_sum() %></td>
+											<td><%= cartbean.getCart_sum() %>\</td>
 											<td></td>
 											
 										</tr>

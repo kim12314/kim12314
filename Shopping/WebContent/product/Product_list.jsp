@@ -98,23 +98,12 @@ table.style_Table td {
   							checkArr.push($(this).attr("data-proNum"));
   						});
   						
-  						$.ajax({
-  							url : "ProductDeleteAction",
-  							type : "post",
-  							data : {chbox : checkArr},
-  							success : function(forward){
-  								if(forward.getResult()){
-  									location.href = "ProductListAction.po"	
-  								}else{
-  									alert("Deletion is failed Please try again")
-  								}
-  								
-  							}
-  						});
+  						location.href = "ProductDeleteAction.po?code="+checkArr;
+  						
   					}
   				});
   			</script>
-  			 
+  			 <input type="hidden" id = "code" name = "code" readonly/>
   		</div>
 	</tr>
 	<%int i=1; %>

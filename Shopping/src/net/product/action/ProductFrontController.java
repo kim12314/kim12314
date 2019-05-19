@@ -111,14 +111,14 @@ public class ProductFrontController extends HttpServlet implements javax.servlet
 			      e.printStackTrace();
 			  }
 		}else if(command.equals("/ProductDeleteAction.po")) {
-			action = new reserveProductDeleteAction();
+			action = new ProductDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/product/ProductDetailAction.po")) {
-			action = new ProductDetailAction();
+			action = new ProductDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

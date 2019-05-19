@@ -74,4 +74,5 @@ import net.action.ActionForward;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException {
 		doProcess(request,response);
-	}   	  	    
+	}
+ }
