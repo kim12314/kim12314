@@ -1,10 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="net.Order.db.*"%>
+
 <%@page import="java.util.List"%>
 <%
 
 	List<OrderBean> beans = (List<OrderBean>)session.getAttribute("orderbean");
+	
 %>
 <%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
@@ -179,27 +181,31 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
             <hr>
                <%for(OrderBean bean : beans){ %>
 				<tr>
-					<td><%=bean.getOrder_date() %></td>
+					<td><%=bean.getOrder_date()%></td>
 					<td><a href="OrderDetailView.oo?code=<%=bean.getOrder_code() %>">
          				<%=bean.getOrder_code() %></a></td>
          			<td><%=bean.getOrder_num() %></td>
 					<td><img src="<%=bean.getOrder_image() %>" width="100" height="80"></td>
 					<td><%=bean.getOrder_count() %></td>
-					<td><%=bean.getOrder_price() %></td>			
+					<td><%=bean.getOrder_hap()%></td>			
                   	<td>
                   		<%=bean.getOrder_result() %></td>	
                   	<td>
+                  		<input type="hidden" value="<%=bean.getOrder_num()%>" name="delivery_num">
+                  		<a href = "DeliveryListAction.do?num=<%=bean.getOrder_num()%>"><button>배송정보</button></a>               		
                   		<a href = "OrderDeleteAction.oo?num=<%=bean.getOrder_num()%>">
 							<button>취소</button></a>
 						<%if(bean.getOrder_result().equals("배송완료")) {%>	
 						<a href = "OrderRecallAction.oo?num=<%=bean.getOrder_num() %>">
 							<button>반품</button></a><%} %>
 				  	</td>
-                       <%} %>
-               	</tr>
-	          </table>
+                 </tr><%} %>	          
+                 </table>
            <a href="./main.jsp"><button>메인 고고</button></a>
          </div>
+         
+         
+         
          <div id="Order2" class="tab_content">
             <form method="post" action="Order.jsp">
                <input type="button" value="오늘" name="Todate" id="date">

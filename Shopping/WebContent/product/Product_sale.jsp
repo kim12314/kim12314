@@ -1,6 +1,7 @@
-
-<%@page import="net.member.db.MemberBean"%>
+﻿<%@page import="net.Delivery.db.*"%>
+<%@page import="net.member.db.*"%>
 <%@page import="java.lang.reflect.Member"%>
+<%@page import="com.sun.xml.internal.txw2.Document"%>
 
 <%@page import="java.util.List"%>
 <%@page import="net.product.db.*"%>
@@ -12,12 +13,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%request.setCharacterEncoding("UTF-8"); %>
-<%
 
+<%
+	
+	MemberDAO md=new MemberDAO();	
 	ProductBean bean = (ProductBean)session.getAttribute("detailOrder"); 
   	int count= bean.getProduct_count();
-  	int cost=bean.getProduct_cost();
-
+  	int price=bean.getProduct_price();
+  	String id=(String)session.getAttribute("id");
+  	String address= md.getMemDetail(id).getMember_address();
 %>
 
 <!DOCTYPE html>
@@ -29,20 +33,15 @@
 					function myFunction() {
   					
   					var x= parseInt(document.getElementById("Order_count").value);  
-  					var y ="<%=cost%>"; 
+  					var y ="<%=price%>"; 
   					document.getElementById("demo").innerHTML ="합계:"+(x*y);
   					document.getElementById("count").value=x;
-  					document.getElementById("count1").value=x;
   					document.getElementById("price").value=x*y;
   					
   					var point= parseInt(document.getElementById("Order_count").value);  
-  					var y ="<%=cost%>"; 
+  					var y ="<%=price%>"; 
   					document.getElementById("pointgo").innerHTML ="적립포인트:"+(x*y)/1000;
   					document.getElementById("point").value=(x*y)/1000;
-					}
-					
-					function goCart() {
-						basketform.submit();
 					}
 	</script>
 <jsp:useBean id="now" class="java.util.Date" />
@@ -85,21 +84,22 @@
 <center>
 
 	<div class="aa" style="color: black;">상품을 구매하세요.</div>
-<form action="OrderAddAction.oo" method="post"> 	
+<form action="DeliveryAction.do" method="post"> 	
  	<table border=1 >
  	<tr> 
  		<td colspan="5">
  			<input type="hidden" value="${id}" name="id">
- 			<input type="hidden" value="<%=bean.getProduct_code()%>" name="code">
+ 			<input type="hidden" value="<%=bean.getProduct_price()%>" name="price">
  			<input type="hidden" value="<%=bean.getProduct_image()%>" name="image">
  			<input type="hidden" name="date" value="${date}" >
  			<input type="hidden" value="<%=bean.getProduct_name() %>" name="name">
  			<input type="hidden" id="count" name="count">
- 			<input type="hidden" value="ready to delivery" name="result">
- 			<input type="hidden" id="price" name="price">
+ 			<input type="hidden" value="배송준비중" name="result">
+ 			<input type="hidden" id="price" name="hap">
  			<input type="hidden" id="point" name="point">
-
-   		상품명: <%=bean.getProduct_name() %></td>
+			<input type="hidden" value="<%=bean.getProduct_code()%>" name="code">
+			<input type="hidden" value="<%=address%>" name="address">
+   			상품명: <%=bean.getProduct_name() %></td>
    	</tr>
  
 
@@ -111,7 +111,7 @@
       	</tr>
       	<tr>
       		
-      		<td>상품 가 격: <%=cost %></td>
+      		<td>상품 가 격: <%=price%></td>
       		<td>개수:
       		
       			<select id="Order_count" name="count" onchange = "myFunction()">
@@ -139,17 +139,7 @@
 
    <%}%>
 </form>
-<form method="post" action="CartAddAction.co" name="basketform">
-			<input type="hidden" value="${id}" name="id" id="id">
- 			<input type="hidden" value="<%=bean.getProduct_code()%>" name="code" id="code">
- 			<input type="hidden" value="<%=bean.getProduct_image()%>" name="image" id="image">
- 			<input type="hidden" value="<%=bean.getProduct_name() %>" name="name" id="name">
- 			<input type="hidden" id="count1" name="count">
- 			<input type="hidden" id="price" name="price" value="<%=bean.getProduct_price() %>">
- 			<input type="hidden" id="delprice" name="delprice" value="2500">
-</form>
-<a href="javascript:goCart()"><button>장바구니에 담기</button></a>
+<a href="BasketAddAction.bo"><button>장바구니에 담기</button></a>
 </center>
 </body>
-
 </html>

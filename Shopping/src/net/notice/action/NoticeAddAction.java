@@ -10,13 +10,11 @@ import net.action.Action;
 import net.action.ActionForward;
 import net.board.db.BoardBean;
 import net.board.db.BoardDAO;
-import net.notice.db.NoticeBean;
-import net.notice.db.NoticeDAO;
 
 public class NoticeAddAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		NoticeDAO noticedao=new NoticeDAO();
-	   	NoticeBean boarddata=new NoticeBean();
+		NoticeDAO noticedao=new BoardDAO();
+	   	NoticeBean boarddata=new BoardBean();
 	   	ActionForward forward=new ActionForward();
 	   	
 		String realFolder="";

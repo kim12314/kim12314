@@ -18,7 +18,7 @@
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="today"/>
 
 <form method="post" action="ProductAddAction.po" name = "productaddform">
-<input type="text" name = "image" id = "image" value="<%=request.getParameter("image")%>" readonly/>
+<input type="hidden" name = "image" id = "image" value="<%=request.getParameter("image")%>" readonly/>
 <table border="1">
 
 
