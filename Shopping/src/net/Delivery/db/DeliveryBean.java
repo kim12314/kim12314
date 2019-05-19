@@ -1,10 +1,12 @@
-package net.Delivery.db.copy;
+package net.Delivery.db;
 
 public class DeliveryBean {
 	private int delivery_num;
+	private String delivery_product;
 	private String delivery_address;
 	private String delivery_name;
-	private String delivery_phon;
+	private String delivery_phone;
+	private String delivery_memo;
 	
 	public int getDelivery_num() {
 		return delivery_num;
@@ -24,10 +26,22 @@ public class DeliveryBean {
 	public void setDelivery_name(String delivery_name) {
 		this.delivery_name = delivery_name;
 	}
-	public String getDelivery_phon() {
-		return delivery_phon;
+	public String getDelivery_phone() {
+		return delivery_phone;
 	}
-	public void setDelivery_phon(String delivery_phon) {
-		this.delivery_phon = delivery_phon;
+	public void setDelivery_phone(String delivery_phone) {
+		this.delivery_phone = delivery_phone;
+	}
+	public String getDelivery_product() {
+		return delivery_product;
+	}
+	public void setDelivery_product(String delivery_product) {
+		this.delivery_product = delivery_product;
+	}
+	public String getDelivery_memo() {
+		return delivery_memo;
+	}
+	public void setDelivery_memo(String delivery_memo) {
+		this.delivery_memo = delivery_memo;
 	}
 }

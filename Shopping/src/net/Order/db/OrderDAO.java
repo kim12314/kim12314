@@ -33,22 +33,23 @@ public class OrderDAO {
 	// 디비에 주문 상품 등록하기
 	public boolean insertOrder(OrderBean orderbean) throws SQLException {
 
-		String sql = "insert into orders values(sqe_order_code.nextval,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into orders values(SQE_ORDER_CODE.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
 		java.sql.Timestamp date = java.sql.Timestamp.valueOf(orderbean.getOrder_date());
 		try {
 			pt = conn.prepareStatement(sql);
 
 			pt.setString(1, orderbean.getOrder_id());
 			pt.setInt(2, orderbean.getOrder_code());
-			pt.setString(3, orderbean.getOrder_image());
-			pt.setTimestamp(4, date);
-			pt.setInt(5, orderbean.getOrder_count());
-			pt.setInt(6, orderbean.getOrder_price());
-			pt.setString(7, orderbean.getOrder_result());
-			pt.setDouble(8, orderbean.getOrder_point());
-			pt.setString(9, orderbean.getOrder_name());
-			pt.executeUpdate();
-
+			pt.setString(3, orderbean.getOrder_address());
+			pt.setString(4,orderbean.getOrder_name());
+			pt.setString(5, orderbean.getOrder_image());
+			pt.setInt(6, orderbean.getOrder_count());
+			pt.setInt(7, orderbean.getOrder_price());
+			pt.setInt(8, orderbean.getOrder_hap());
+			pt.setString(9, orderbean.getOrder_result());
+			pt.setTimestamp(10, date);
+			pt.setDouble(11, orderbean.getOrder_point());
+			
 			return true;
 
 		} catch (RuntimeException er) {
@@ -90,7 +91,7 @@ public class OrderDAO {
 				orderbean.setOrder_result(re.getString("order_result"));
 				orderbean.setOrder_point(re.getDouble("order_point"));
 				orderbean.setOrder_name(re.getString("order_name"));
-				
+				orderbean.setOrder_hap(re.getInt("order_hap"));
 
 				list.add(orderbean);
 			}
@@ -115,6 +116,45 @@ public class OrderDAO {
 		}
 		return null;
 	}
+	
+	// 주문상품 리스트
+		public OrderBean getOrder(String id) throws SQLException {
+			String sql = "select * from orders where order_id=?";
+
+			try{	   
+		  		pt = conn.prepareStatement(sql);
+		  		pt.setString(1, id);
+		  		re = pt.executeQuery();
+		  		
+		  		if(!re.next()) {return null;}
+					OrderBean orderbean = new OrderBean();
+					orderbean.setOrder_num(re.getInt("order_num"));
+					orderbean.setOrder_id(re.getString("order_id"));
+					orderbean.setOrder_code(re.getInt("order_code"));
+					orderbean.setOrder_image(re.getString("order_image"));
+					String date = String.valueOf(re.getTimestamp("order_date"));
+					orderbean.setOrder_date(date);
+					orderbean.setOrder_count(re.getInt("order_count"));
+					orderbean.setOrder_price(re.getInt("order_price"));
+					orderbean.setOrder_result(re.getString("order_result"));
+					orderbean.setOrder_point(re.getDouble("order_point"));
+					orderbean.setOrder_name(re.getString("order_name"));
+					orderbean.setOrder_hap(re.getInt("order_hap"));
+					return orderbean;
+				}	
+			
+				catch(SQLException se) {
+					se.printStackTrace();
+				}finally {
+					try{
+						if(re!=null){re.close(); re = null;}
+						if(pt!=null){pt.close(); pt = null;}  //닫아줌
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+				}
+				return null;
+			}
 	
 	//상품상세정보용
 
@@ -175,6 +215,10 @@ public class OrderDAO {
 			}
 			return false;
 		}	
+		
+		
+		
+		
 		//커넥트 닫기
 		public void conClose() {
 			try {

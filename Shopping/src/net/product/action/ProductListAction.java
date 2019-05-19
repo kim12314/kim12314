@@ -28,7 +28,7 @@ public class ProductListAction implements Action{
 		session.setAttribute("productbean", productdao.getListProduct());
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./product/Product_list.jsp?cate=All");
+		forward.setPath("./product/Product_list.jsp");
 		productdao.conClose();
 		return forward;
 		

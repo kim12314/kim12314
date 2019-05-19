@@ -33,11 +33,5 @@ public class OrderDetailView implements Action{
 		forward.setPath("ProductSaleView.po");
 		return forward;
 		
-		
-		
-		
-		
-		
-		
 	}
 }

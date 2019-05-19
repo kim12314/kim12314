@@ -25,17 +25,6 @@ table.style_Table td {
 
 </style>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-	function gotolist(){
-		var x = document.getElementById("selectcategory").value;
-		if(x == "allview"){
-			window.location.href = "ProductListAction.po";
-		}else{
-			window.location.href = "ProductCatelistAction.po?category="+x;	
-		}
-		
-	}
-</script>
 </head>
 <body>
 
@@ -43,27 +32,23 @@ table.style_Table td {
 		<div><jsp:include page="/header.jsp"></jsp:include></div>
 <%
 	List<ProductBean> beans = (List<ProductBean>)session.getAttribute("productbean");
-	List<String> cates = (List<String>)session.getAttribute("productcate");
+	List cate = (List)session.getAttribute("productcate");
 %>
 <br><br><br><br><br><br>
 <div>
-	<h3>카테고리</h3>
-		<select name = "selectcategory" id = "selectcategory" onchange = "selectcategory()" >
-			<option disabled selected>Choose the Category</option>
-			<option value = "allview">Display all of Product</option>
-		<%for(int i =0;i<cates.size();i++){ %>
-			<option value="<%=cates.get(i)%>"><%=cates.get(i)%></option>
-		<%} %>
-		</select>
-	<a href = "javascript:gotolist()"><button>확인</button></a>
+	<select>
+	<%for(int i=0;i<cate.size();i++){ %>
+		<option><%=cate.get(i)%></option>
+	<%} %>
+	</select>
+
 </div>
-<div style="font-size:30pt;font-weight: bold" align="center"><%=request.getParameter("cate") %>&nbsp;상품 목록</div>
+<div style="font-size:30pt;font-weight: bold" align="center">상품 목록</div>
 <br><br>
-<table class="style_Table" border="0" align="center">
+<table class="style_Table" border="0"align="center">
 
 	<tr align="center" style=font-size:17pt;>
 		<td></td>
-		<td>번호</td>
 		<td>코드</td>
 		<td>상품이름</td>
 		<td>가격</td>
@@ -117,7 +102,6 @@ table.style_Table td {
   			 
   		</div>
 	</tr>
-	<%int i=1; %>
 	<%for(ProductBean bean : beans){ %>
 	<tr align="center" style="font-size:15pt" class = "proInfo">
 		<td> <!--항목마다 체크박스를 만듬-->
@@ -130,7 +114,6 @@ table.style_Table td {
   			</script>
  			</div>
 		</td>
-		<td><%=i++%></td>
 		<td><a href="ProductDetailAction.po?code=<%=bean.getProduct_code()%>">
          	<%=bean.getProduct_code() %>
         	</a></td>

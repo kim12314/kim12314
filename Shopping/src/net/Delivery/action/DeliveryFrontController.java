@@ -23,8 +23,25 @@ public class DeliveryFrontController extends HttpServlet implements javax.servle
 		System.out.println(contextPath);
 		System.out.println(command);
 		
-		if(command.equals("/DeliveryAction.do")) {
+		if(command.equals("/DeliveryListAction.do")) {
+			action = new DeliveryListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/DeliveryAction.do")) {
 			action = new DeliveryAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/delivery/DeliveryAddAction.do")) {
+			
+			action = new DeliveryAddAction();
+			System.out.println("2");
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

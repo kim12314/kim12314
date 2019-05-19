@@ -1,4 +1,4 @@
-package net.product.action;
+package net.Delivery.action;
 
 import java.io.PrintWriter;
 
@@ -8,17 +8,25 @@ import javax.servlet.http.HttpSession;
 
 import net.action.Action;
 import net.action.ActionForward;
-import net.product.db.ProductBean;
-import net.product.db.ProductDAO;
+import net.Delivery.db.*;
+import net.Order.db.OrderBean;
+import net.Order.db.OrderDAO;
 
-public class ProductCatelistAction implements Action{
+
+public class DeliveryListAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
-		ProductDAO productdao = new ProductDAO();
+		DeliveryDAO deliverydao = new DeliveryDAO();
+		OrderDAO od=new OrderDAO();
+		String a=(String)session.getAttribute("delivery_num");
+		int num=Integer.parseInt(a);
 		
-		String cate = request.getParameter("category");
-		
-		if(productdao.researchProduct(cate) == null) {
+		System.out.println(a);
+				System.out.println(num);
+	
+	
+		System.out.println(num);
+		if(deliverydao.getListDelivery(num) == null) {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('There is no data please try again')");
@@ -27,12 +35,12 @@ public class ProductCatelistAction implements Action{
 			return null;
 		}
 		
-		session.setAttribute("productcate", productdao.getCategory());
-		session.setAttribute("productbean", productdao.researchProduct(cate));
+		session.setAttribute("deliverybean", deliverydao.getListDelivery(num));
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./product/Product_list.jsp?cate="+cate);
-		productdao.conClose();
+		forward.setPath("./delivery/delivery_List.jsp");
+		deliverydao.conClose();
 		return forward;
 		
 	}
