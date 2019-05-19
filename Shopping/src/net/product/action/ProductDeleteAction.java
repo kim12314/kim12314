@@ -20,7 +20,7 @@ public class ProductDeleteAction extends HttpServlet implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ProductDAO productdao = new ProductDAO();
 		ActionForward forward = new ActionForward();
-		
+		request.setCharacterEncoding("utf-8");
 		String code = request.getParameter("code");
 		String[] fcode = code.split(",");
 		

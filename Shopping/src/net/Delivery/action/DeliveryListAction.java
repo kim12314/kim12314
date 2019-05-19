@@ -17,6 +17,9 @@ public class DeliveryListAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		DeliveryDAO deliverydao = new DeliveryDAO();
+		
+		request.setCharacterEncoding("utf-8");
+	
 		String a=(String)session.getAttribute("delivery_num");
 		int num=Integer.parseInt(a);
 		

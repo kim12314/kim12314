@@ -15,6 +15,7 @@ public class ProductUpdateView implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		ProductDAO productdao = new ProductDAO();
 		ProductBean productbean = new ProductBean();
+		request.setCharacterEncoding("utf-8");
 		
 		productbean.setProduct_code(Integer.parseInt(request.getParameter("code")));
 		

@@ -20,6 +20,7 @@ public class DeliveryAddAction implements Action{
 
 		DeliveryBean deliverybean=new DeliveryBean();
 		DeliveryDAO deliverydao=new DeliveryDAO();
+		request.setCharacterEncoding("utf-8");
 		
 		deliverybean.setDelivery_product(request.getParameter("delivery_name"));;
 		deliverybean.setDelivery_address(request.getParameter("delivery_address"));

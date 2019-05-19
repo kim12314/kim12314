@@ -10,7 +10,7 @@ import net.review.db.ReviewBean;
 
  public class ReviewDetailAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-		request.setCharacterEncoding("euc-kr");
+		 request.setCharacterEncoding("utf-8");
    		
 		ReviewDAO reviewdao=new ReviewDAO();
 	   	ReviewBean reviewdata=new ReviewBean();

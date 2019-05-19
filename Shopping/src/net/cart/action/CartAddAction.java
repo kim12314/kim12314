@@ -16,6 +16,7 @@ public class CartAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		CartDAO cartdao = new CartDAO();
 		CartBean cartbean = new CartBean();
+		request.setCharacterEncoding("utf-8");
 		
 		cartbean.setCart_id(request.getParameter("id"));
 		cartbean.setCart_code(Integer.parseInt(request.getParameter("code")));

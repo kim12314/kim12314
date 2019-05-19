@@ -17,6 +17,7 @@ public class NewsAddAction implements Action {
 		NewsDAO newsdao=new NewsDAO();
 		NewsBean newsdata=new NewsBean();
 	   	ActionForward forward=new ActionForward();
+	   	request.setCharacterEncoding("utf-8");
 	   	
    		boolean result=false;
    		

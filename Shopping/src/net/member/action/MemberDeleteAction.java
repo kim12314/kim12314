@@ -17,7 +17,7 @@ public class MemberDeleteAction implements Action {
 		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
 		PrintWriter out = response.getWriter();
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		if((session.getAttribute("id")==null) || (!((String)session.getAttribute("id")).equals("admin"))){
 			out.println("<script>");
 			out.println("location.href='MemberLoginForm.mo'");

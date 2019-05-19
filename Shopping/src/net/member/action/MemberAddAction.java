@@ -18,7 +18,7 @@ public class MemberAddAction implements Action{
 		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean memberbean = new MemberBean();
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
 		
 		
 		

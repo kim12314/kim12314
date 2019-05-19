@@ -14,6 +14,7 @@ import net.product.db.ProductDAO;
 public class ProductModifyView implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		ProductDAO productdao = new ProductDAO();
+		request.setCharacterEncoding("utf-8");
 		
 		String image =request.getParameter("image"); 
 		ActionForward forward = new ActionForward();

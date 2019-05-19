@@ -10,10 +10,9 @@ import net.news.db.NewsBean;
 
  public class NewsDetailAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-		request.setCharacterEncoding("euc-kr");
-   		
 		NewsDAO newsdao=new NewsDAO();
 	   	NewsBean newsdata=new NewsBean();
+	   	request.setCharacterEncoding("utf-8");
 	   	
 		int num=Integer.parseInt(request.getParameter("num"));
 		newsdao.setReadCountUpdate(num);

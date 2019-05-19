@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import = "net.member.db.*" %>
 <%@ page import = "net.review.db.*" %>
 <html>
 <head>
-<title>MVC °Ô½ÃÆÇ</title>
+<title>MVC ê²Œì‹œíŒ</title>
 <script language="javascript">
 	function addreview() {
 		reviewform.submit();
@@ -36,7 +36,7 @@ ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
 	<div id="container">
 		<div><jsp:include page="/header.jsp"></jsp:include></div>
 
-		<!-- °Ô½ÃÆÇ µî·Ï -->
+		<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 		<br>
 		<br>
 		<br>
@@ -45,13 +45,13 @@ ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
 		<br>
 		<br>
 		<center>
-			<div style="font-size:35pt; font-weight: bold">±Û¾²±â</div>
+			<div style="font-size:35pt; font-weight: bold">ê¸€ì“°ê¸°</div>
 			<form action="./ReviewAddAction.re" method="post" name="reviewform">
 				<table class="style_table" cellpadding="0" cellspacing="0">
 					
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20" height="16">
-							<div align="center">±Û¾´ÀÌ</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20" height="16">
+							<div align="center">ê¸€ì“´ì´</div>
 						</td>
 						<td style="font-size: 20";>
 						<input name="REVIEW_NAME" type="hidden" size="10" maxlength="10" value="<%=id %>"><%=id %>
@@ -59,16 +59,16 @@ ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
 					</tr>
 				
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20" height="16">
-							<div align="center">ºñ¹Ğ¹øÈ£</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20" height="16">
+							<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 						</td>
 						<td><input name="REVIEW_PASS" style="font-size: 20"
 							;type="password" size="20" maxlength="20" value="" /></td>
 					</tr>
 				
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20" height="16">
-							<div align="center">Á¦ ¸ñ</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20" height="16">
+							<div align="center">ì œ ëª©</div>
 						</td>
 						<td><input name="REVIEW_SUBJECT" type="text" size="50"
 							maxlength="100" style="font-size: 20" ;
@@ -76,8 +76,8 @@ ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
 					</tr>
 					
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20">
-							<div align="center">³» ¿ë</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20">
+							<div align="center">ë‚´ ìš©</div>
 						</td>
 						<td><textarea name="REVIEW_CONTENTS" cols="90" rows="30"></textarea>
 						</td>
@@ -92,6 +92,6 @@ ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
 			</form>
 		</center>
 	</div>
-	<!-- °Ô½ÃÆÇ µî·Ï -->
+	<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 </body>
 </html>

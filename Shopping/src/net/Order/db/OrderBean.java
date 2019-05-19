@@ -12,7 +12,7 @@ public class OrderBean {
 	private int Order_hap;//총 주문금액
 	private String Order_result;//현재배송상태
 	private String Order_date;//주문날짜
-	private double Order_point;//포인트
+	private int Order_point;//포인트
 	
 	public int getOrder_num() {
 		return Order_num;
@@ -80,12 +80,13 @@ public class OrderBean {
 	public void setOrder_date(String order_date) {
 		Order_date = order_date;
 	}
-	public double getOrder_point() {
+	public int getOrder_point() {
 		return Order_point;
 	}
-	public void setOrder_point(double order_point) {
+	public void setOrder_point(int order_point) {
 		Order_point = order_point;
 	}
+	
 	
 	
 }

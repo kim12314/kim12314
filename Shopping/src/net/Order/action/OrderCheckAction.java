@@ -16,6 +16,7 @@ public class OrderCheckAction implements Action{
 		HttpSession session = request.getSession();
 		OrderDAO orderdao = new OrderDAO();	
 		OrderBean orderbean=new OrderBean();
+		request.setCharacterEncoding("utf-8");
 		String date=orderbean.getOrder_date();
 		System.out.println(date);
 		int code = Integer.parseInt(request.getParameter("code"));

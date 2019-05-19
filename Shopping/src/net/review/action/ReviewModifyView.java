@@ -11,7 +11,7 @@ import net.review.db.ReviewBean;
 public class ReviewModifyView implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	ActionForward forward = new ActionForward();
-		 	request.setCharacterEncoding("euc-kr");
+		 	request.setCharacterEncoding("utf-8");
 	   		
 		 	ReviewDAO reviewdao=new ReviewDAO();
 		   	ReviewBean reviewdata=new ReviewBean();

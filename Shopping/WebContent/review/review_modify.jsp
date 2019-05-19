@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="net.review.db.*" %>
 <%
 	ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
@@ -7,7 +7,7 @@
 <html>
 <head>
 
-	<title>¼öÁ¤ÇÏ±â</title>
+	<title>ìˆ˜ì •í•˜ê¸°</title>
 	<script type="text/javascript">
 	function modifyreview(){
 		modifyform.submit();
@@ -23,7 +23,7 @@
 <div id="container">
       
          <div><jsp:include page="/header.jsp" flush="false"></jsp:include></div>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 <br>
 		<br>
 		<br>
@@ -36,11 +36,11 @@
 <input type="hidden" name="REVIEW_NUM" value=<%=review.getREVIEW_NUM() %>>
 <center><table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5"><h1>¼öÁ¤ÇÏ±â</h1></td>
+		<td colspan="5"><h1>ìˆ˜ì •í•˜ê¸°</h1></td>
 	</tr>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:20">
-			<div align="center" >Á¦ ¸ñ&nbsp;&nbsp;</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:20">
+			<div align="center" >ì œ ëª©&nbsp;&nbsp;</div>
 		</td>
 		<td>
 			<input name="REVIEW_SUBJECT" size="50" maxlength="100" 
@@ -48,8 +48,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:20">
-			<div align="center">³» ¿ë&nbsp;&nbsp;</div>
+		<td style="font-family:ë‹ìŒ; font-size:20">
+			<div align="center">ë‚´ ìš©&nbsp;&nbsp;</div>
 		</td>
 		<td>
 			<textarea name="REVIEW_CONTENTS" cols="67" rows="15">
@@ -59,8 +59,8 @@
 	</tr>
 
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:20">
-			<div align="center">ºñ¹Ð¹øÈ£&nbsp;&nbsp;</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:20">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸&nbsp;&nbsp;</div>
 		</td>
 		<td>
 			<input name="REVIEW_PASS" type="password">
@@ -76,14 +76,14 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=5>
-			<a href="javascript:modifyreview()">[¼öÁ¤]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[µÚ·Î]</a>&nbsp;&nbsp;
+			<a href="javascript:modifyreview()">[ìˆ˜ì •]</a>&nbsp;&nbsp;
+			<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table></center>
 </form>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 </div>
 </body>
 </html>

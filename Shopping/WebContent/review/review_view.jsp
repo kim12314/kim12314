@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="net.review.db.*" %>
 <%
 	ReviewBean review = (ReviewBean)request.getAttribute("reviewdata");
@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>MVC ∞‘Ω√∆«</title>
+	<title>MVC Í≤åÏãúÌåê</title>
 	<link rel="stylesheet" href="css/style.css" />
 	<style type="text/css">
 
@@ -18,7 +18,7 @@
 <body>
 <div id="container">
 <div><jsp:include page="/header.jsp"></jsp:include></div>
-<!-- ∞‘Ω√∆« ºˆ¡§ -->
+<!-- Í≤åÏãúÌåê ÏàòÏ†ï -->
 <br>
 		<br>
 		<br>
@@ -33,11 +33,11 @@
 	
 	
 	<tr>
-		<td style="font-family:µ∏¿Ω; font-size:20" height="16">
-			<div align="center">¡¶ ∏Ò&nbsp;&nbsp;</div>
+		<td style="font-family:ÎèãÏùå; font-size:20" height="16">
+			<div align="center">Ï†ú Î™©&nbsp;&nbsp;</div>
 		</td>
 		
-		<td style="font-family:µ∏¿Ω; font-size:20">
+		<td style="font-family:ÎèãÏùå; font-size:20">
 		<%=review.getREVIEW_SUBJECT()%>
 		</td>
 	</tr>
@@ -48,13 +48,13 @@
 	</tr>
 	
 	<tr>
-		<td style="font-family:µ∏¿Ω; font-size:20">
-			<div align="center">≥ª øÎ</div>
+		<td style="font-family:ÎèãÏùå; font-size:20">
+			<div align="center">ÎÇ¥ Ïö©</div>
 		</td>
-		<td style="font-family:µ∏¿Ω; font-size:20">
+		<td style="font-family:ÎèãÏùå; font-size:20">
 			<table border=0 width=700 height=400 style="table-layout:fixed">
 				<tr>
-					<td valign=top style="font-family:µ∏¿Ω; font-size:20">
+					<td valign=top style="font-family:ÎèãÏùå; font-size:20">
 					<%=review.getREVIEW_CONTENTS() %>
 					</td>
 				</tr>
@@ -71,20 +71,20 @@
 		<td colspan="5">
 			<font size=4>
 			<a href="./ReviewReplyAction.re?num=<%=review.getREVIEW_NUM() %>">
-			[¥‰∫Ø]
+			[ÎãµÎ≥Ä]
 			</a>&nbsp;&nbsp;
 			<a href="./ReviewModify.re?num=<%=review.getREVIEW_NUM() %>">
-			[ºˆ¡§]
+			[ÏàòÏ†ï]
 			</a>&nbsp;&nbsp;
 			<a href="./ReviewDelete.re?num=<%=review.getREVIEW_NUM() %>">
-			[ªË¡¶]
+			[ÏÇ≠Ï†ú]
 			</a>&nbsp;&nbsp;
-			<a href="./ReviewList.re">[∏Ò∑œ]</a>&nbsp;&nbsp;
+			<a href="./ReviewList.re">[Î™©Î°ù]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table></center>
-<!-- ∞‘Ω√∆« ºˆ¡§ -->
+<!-- Í≤åÏãúÌåê ÏàòÏ†ï -->
 </div>
 </body>
 </html>

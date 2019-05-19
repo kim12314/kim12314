@@ -15,7 +15,7 @@ public class ProductDetailAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();	
-		
+		request.setCharacterEncoding("utf-8");
 		int code = Integer.parseInt(request.getParameter("code"));
 		
 		if(productdao.detailProduct(code) == null) {

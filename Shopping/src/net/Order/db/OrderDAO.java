@@ -48,7 +48,7 @@ public class OrderDAO {
 			pt.setInt(8, orderbean.getOrder_hap());
 			pt.setString(9, orderbean.getOrder_result());
 			pt.setTimestamp(10, date);
-			pt.setDouble(11, orderbean.getOrder_point());
+			pt.setInt(11, orderbean.getOrder_point());
 			
 			pt.executeUpdate();
 			
@@ -91,7 +91,7 @@ public class OrderDAO {
 				orderbean.setOrder_count(re.getInt("order_count"));
 				orderbean.setOrder_price(re.getInt("order_price"));
 				orderbean.setOrder_result(re.getString("order_result"));
-				orderbean.setOrder_point(re.getDouble("order_point"));
+				orderbean.setOrder_point(re.getInt("order_point"));
 				orderbean.setOrder_name(re.getString("order_name"));
 				orderbean.setOrder_hap(re.getInt("order_hap"));
 
@@ -139,7 +139,7 @@ public class OrderDAO {
 					orderbean.setOrder_count(re.getInt("order_count"));
 					orderbean.setOrder_price(re.getInt("order_price"));
 					orderbean.setOrder_result(re.getString("order_result"));
-					orderbean.setOrder_point(re.getDouble("order_point"));
+					orderbean.setOrder_point(re.getInt("order_point"));
 					orderbean.setOrder_name(re.getString("order_name"));
 					orderbean.setOrder_hap(re.getInt("order_hap"));
 					return orderbean;

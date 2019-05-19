@@ -15,7 +15,7 @@ public class OrderRecallAction implements Action{
 		HttpSession session = request.getSession();
 		OrderDAO orderdao = new OrderDAO();
 		OrderBean orderbean = new OrderBean();
-		
+		request.setCharacterEncoding("utf-8");
 		orderbean.setOrder_num(Integer.parseInt(request.getParameter("num")));
 		
 		

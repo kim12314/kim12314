@@ -18,9 +18,8 @@ public class OrderListAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		OrderDAO orderdao = new OrderDAO();
-		System.out.println("6");
+		request.setCharacterEncoding("utf-8");
 		String id=(String) session.getAttribute("id");
-		System.out.println(id);
 		
 		if(orderdao.getListOrder(id) == null) {
 			PrintWriter out = response.getWriter();

@@ -14,7 +14,7 @@ public class OrderDetailView implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		OrderDAO orderdao = new OrderDAO();	
-		
+		request.setCharacterEncoding("utf-8");
 		int code = Integer.parseInt(request.getParameter("code"));
 		
 		if(orderdao.detailOrder(code) == null) {

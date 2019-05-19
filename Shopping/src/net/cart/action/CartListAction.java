@@ -18,7 +18,7 @@ import net.cart.db.CartDAO;
 		 HttpSession session = request.getSession();
 		 CartDAO cartdao = new CartDAO();
 		 CartBean cartbean = new CartBean();
-		 
+		 request.setCharacterEncoding("utf-8");
 		 String id = (String)session.getAttribute("id");
 		 
 		 if(cartdao.getListCart(id) == null) {

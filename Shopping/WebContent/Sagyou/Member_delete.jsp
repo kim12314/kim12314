@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
@@ -9,9 +9,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
+<title>ê´ë¦¬ì íì´ì§</title>
 <script type="text/javascript">
-	if(confirm("정말삭제 하시겠습니까?")==false){
+	if(confirm("정말 삭제하시겠습니까?")==false){
 		history.back();
 	}
 </script>

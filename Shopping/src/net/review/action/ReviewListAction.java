@@ -11,7 +11,8 @@ import net.review.db.ReviewDAO;
 
  public class ReviewListAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
+		 request.setCharacterEncoding("utf-8");
+		 
 		ReviewDAO reviewdao=new ReviewDAO();//DB ����
 		List reviewlist=new ArrayList();
 		

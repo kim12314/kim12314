@@ -16,7 +16,7 @@ import net.member.db.MemberDAO;
 public class MemberLogoutAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
 		
 		String check = request.getParameter("check");
 		

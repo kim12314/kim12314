@@ -17,6 +17,7 @@ public class ReviewAddAction implements Action {
 		ReviewDAO reviewdao=new ReviewDAO();
 		ReviewBean reviewdata=new ReviewBean();
 	   	ActionForward forward=new ActionForward();
+	   	request.setCharacterEncoding("utf-8");
 	   	
    		boolean result=false;
    		

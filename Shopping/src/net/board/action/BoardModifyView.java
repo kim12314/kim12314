@@ -11,7 +11,7 @@ import net.board.db.BoardBean;
 public class BoardModifyView implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	ActionForward forward = new ActionForward();
-		 	request.setCharacterEncoding("euc-kr");
+		 	request.setCharacterEncoding("utf-8");
 	   		
 			BoardDAO boarddao=new BoardDAO();
 		   	BoardBean boarddata=new BoardBean();

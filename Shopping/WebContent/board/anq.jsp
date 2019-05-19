@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="net.board.db.*"%>
@@ -40,12 +40,12 @@ Button {
 <body>
 		<%-- <%
 	if(session.getAttribute("id").equals("admin")){%>
-		<%=session.getAttribute("id")%>´Ô È¯¿µÇÕ´Ï´Ù.<br>
-		<a href = "MemberListViewAction.mo">°ü¸®ÀÚ¸ðµå Á¢¼Ó(È¸¿ø ¸ñ·Ïº¸±â)</a>
+		<%=session.getAttribute("id")%>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.<br>
+		<a href = "MemberListViewAction.mo">ê´€ë¦¬ìžëª¨ë“œ ì ‘ì†(íšŒì› ëª©ë¡ë³´ê¸°)</a>
 	<%}else{%>
-		<%=	session.getAttribute("id")%>´Ô È¯¿µÇÕ´Ï´Ù.
+		<%=	session.getAttribute("id")%>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.
 	<%} %> --%>
-		<!-- °Ô½ÃÆÇ ¸®½ºÆ® -->
+		<!-- ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ -->
 		<br>
 		<br>
 		<br>
@@ -61,24 +61,24 @@ Button {
 				<td colspan="4" style="font-size: 40pt; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q
 					& A</td>
 
-				<td align=right><font size=4>±Û °³¼ö : ${listcount }</font></td>
+				<td align=right><font size=4>ê¸€ ê°œìˆ˜ : ${listcount }</font></td>
 			</tr>
 			<tr align="center" valign="middle" bordercolor="#333333">
 				<td style="font-family: Tahoma; font-size: 17pt;" width="8%"
 					height="26">
-					<div align="center">¹øÈ£</div>
+					<div align="center">ë²ˆí˜¸</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 17pt;" width="50%">
-					<div align="center">Á¦¸ñ</div>
+					<div align="center">ì œëª©</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 17pt;" width="14%">
-					<div align="center">ÀÛ¼ºÀÚ</div>
+					<div align="center">ìž‘ì„±ìž</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 17pt;" width="17%">
-					<div align="center">³¯Â¥</div>
+					<div align="center">ë‚ ì§œ</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 17pt;" width="11%">
-					<div align="center">Á¶È¸¼ö</div>
+					<div align="center">ì¡°íšŒìˆ˜</div>
 				</td>
 			</tr>
 
@@ -105,11 +105,11 @@ Button {
 						<%
 							}
 						%>
-						¢º
+						â–¶
 						<%
 							} else {
 						%>
-						¢º
+						â–¶
 						<%
 							}
 						%>
@@ -135,10 +135,10 @@ Button {
 				<td colspan=7 style="font-family: Tahoma; font-size: 15pt;">
 					<%
 						if (nowpage <= 1) {
-					%> [ÀÌÀü]&nbsp; <%
+					%> [ì´ì „]&nbsp; <%
  	} else {
  %> <a
-					href="./BoardList.bo?page=<%=nowpage - 1%>">[ÀÌÀü]</a>&nbsp; <%
+					href="./BoardList.bo?page=<%=nowpage - 1%>">[ì´ì „]</a>&nbsp; <%
  	}
  %> <%
  	for (int a = startpage; a <= endpage; a++) {
@@ -153,10 +153,10 @@ Button {
  	}
  %> <%
  	if (nowpage >= maxpage) {
- %> [´ÙÀ½] <%
+ %> [ë‹¤ìŒ] <%
  	} else {
  %> <a
-					href="./BoardList.bo?page=<%=nowpage + 1%>">[´ÙÀ½]</a> <%
+					href="./BoardList.bo?page=<%=nowpage + 1%>">[ë‹¤ìŒ]</a> <%
  	}
  %>
 				</td>

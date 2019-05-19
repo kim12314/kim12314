@@ -15,6 +15,8 @@ import net.news.db.NewsDAO;
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session  =request.getSession();
 		NewsDAO newsdao=new NewsDAO();//DB ����
+		request.setCharacterEncoding("utf-8");
+		
 		List newslist=new ArrayList();
 		
 		String id = (String)session.getAttribute("id");

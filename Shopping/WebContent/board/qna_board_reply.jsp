@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="net.board.db.*" %>
 <%
 	BoardBean board=(BoardBean)request.getAttribute("boarddata");
@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>MVC °Ô½ÃÆÇ</title>
+	<title>MVC ê²Œì‹œíŒ</title>
 	<script language="javascript">
 	function replyboard(){
 		boardform.submit();
@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 <div id="container">
 		<div><jsp:include page="/header.jsp"></jsp:include></div>
 
@@ -35,8 +35,8 @@
 		<td colspan="5">Q&A reply</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:20" height="16">
-			<div align="center">±Û¾´ÀÌ</div>
+		<td style="font-family:ë‹ìŒ; font-size:20" height="16">
+			<div align="center">ê¸€ì“´ì´</div>
 		</td>
 		<td>
 			${id}
@@ -44,8 +44,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:20" height="16">
-			<div align="center">Á¦ ¸ñ</div>
+		<td style="font-family:ë‹ìŒ; font-size:20" height="16">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="BOARD_SUBJECT" type="text" size="50" 
@@ -53,16 +53,16 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:20">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:20">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="BOARD_CONTENT" cols="67" rows="15"></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:20">
-			<div align="center">ºñ¹Ğ¹øÈ£</div>
+		<td style="font-family:ë‹ìŒ; font-size:20">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="BOARD_PASS" type="password">
@@ -77,12 +77,12 @@
 	
 	<tr align="center" valign="middle">
 		<td colspan="5">
-		<a href="javascript:replyboard()">[µî·Ï]</a>&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">[µÚ·Î]</a>
+		<a href="javascript:replyboard()">[ë“±ë¡]</a>&nbsp;&nbsp;
+		<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>
 		</td>
 	</tr>
 </table>
 </form></center>
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 </body>
 </html>

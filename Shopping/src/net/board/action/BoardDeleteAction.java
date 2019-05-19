@@ -14,7 +14,7 @@ public class BoardDeleteAction implements Action {
 	 	throws Exception{
 		 
 		ActionForward forward = new ActionForward();
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 	   	boolean result=false;
 	   	boolean usercheck=false;

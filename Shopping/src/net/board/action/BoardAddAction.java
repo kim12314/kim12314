@@ -33,7 +33,7 @@ public class BoardAddAction implements Action {
    			multi=new MultipartRequest(request,
    					realFolder,
    					fileSize,
-   					"euc-kr",
+   					"utf-8",
    					new DefaultFileRenamePolicy());
    			
    			boarddata.setBOARD_NAME(multi.getParameter("BOARD_NAME"));

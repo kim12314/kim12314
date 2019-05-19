@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="net.board.db.*" %>
 <%
 	BoardBean board = (BoardBean)request.getAttribute("boarddata");
@@ -6,7 +6,7 @@
 
 <html>
 <head>
-	<title>MVC °Ô½ÃÆÇ</title>
+	<title>MVC ê²Œì‹œíŒ</title>
 	<script type="text/javascript">
 	function modifyboard(){
 		modifyform.submit();
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 <div id="container">
 		<div><jsp:include page="/header.jsp"></jsp:include></div>
 		
@@ -30,8 +30,8 @@
 		<td colspan="5">Q&A Modify</td>
 	</tr>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">Á¦ ¸ñ</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="BOARD_SUBJECT" size="50" maxlength="100" 
@@ -39,8 +39,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="BOARD_CONTENT" cols="67" rows="15">
@@ -50,8 +50,8 @@
 	</tr>
 	<%if(!(board.getBOARD_FILE()==null)){ %>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">ÆÄÀÏ Ã·ºÎ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">íŒŒì¼ ì²¨ë¶€</div>
 		</td>
 		<td>
 			&nbsp;&nbsp;<%=board.getBOARD_FILE() %>
@@ -59,8 +59,8 @@
 	</tr>
 	<%} %>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">ºñ¹Ğ¹øÈ£</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="BOARD_PASS" type="password">
@@ -76,13 +76,13 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="javascript:modifyboard()">[¼öÁ¤]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[µÚ·Î]</a>&nbsp;&nbsp;
+			<a href="javascript:modifyboard()">[ìˆ˜ì •]</a>&nbsp;&nbsp;
+			<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
 </form></center>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 </body>
 </html>

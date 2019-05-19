@@ -15,6 +15,7 @@ public class ProductListAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
+		request.setCharacterEncoding("utf-8");
 		
 		if(productdao.getListProduct() == null) {
 			PrintWriter out = response.getWriter();

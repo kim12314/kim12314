@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="net.review.db.*" %>
 <%
 	ReviewBean review =(ReviewBean)request.getAttribute("reviewdata");
@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<title>MVC °Ô½ÃÆÇ</title>
+	<title>MVC ê²Œì‹œíŒ</title>
 	<script language="javascript">
 	function replyreview(){
 		reviewform.submit();
@@ -22,7 +22,7 @@
       
          <div><jsp:include page="/header.jsp" flush="false"></jsp:include></div>
 
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 <form action="./ReviewReplyView.re" method="post" name="reviewform">
 <input type="hidden" name="REVIEW_NUM" value="<%=review.getREVIEW_NUM() %>">
 <input type="hidden" name="REVIEW_RE_REF" value="<%=review.getREVIEW_RE_REF() %>">
@@ -31,19 +31,19 @@
 
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">´ä±Û ´Ş±â</td>
+		<td colspan="5">ë‹µê¸€ ë‹¬ê¸°</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">±Û¾´ÀÌ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ê¸€ì“´ì´</div>
 		</td>
 		<td>
 			<input name="REVIEW_NAME" type="hidden" value = "<%=id%>"/><%=id %>
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">Á¦ ¸ñ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="REVIEW_SUBJECT" type="text" size="50" 
@@ -51,16 +51,16 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="REVIEW_CONTENTS" cols="67" rows="15"></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">ºñ¹Ğ¹øÈ£</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="REVIEW_PASS" type="password">
@@ -75,13 +75,13 @@
 	
 	<tr align="center" valign="middle">
 		<td colspan="5">
-		<a href="javascript:replyreview()">[µî·Ï]</a>&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">[µÚ·Î]</a>
+		<a href="javascript:replyreview()">[ë“±ë¡]</a>&nbsp;&nbsp;
+		<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 </div>
 </body>
 </html>

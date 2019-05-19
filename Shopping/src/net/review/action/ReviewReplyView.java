@@ -15,6 +15,7 @@ public class ReviewReplyView implements Action {
 		 	
 			ReviewDAO reviewdao=new ReviewDAO();
 	   		ReviewBean reviewdata=new ReviewBean();
+	   		request.setCharacterEncoding("utf-8");
 	   		
 	   		int num=Integer.parseInt(request.getParameter("num"));
 	   		

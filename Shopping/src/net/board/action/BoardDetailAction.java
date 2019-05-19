@@ -10,7 +10,7 @@ import net.board.db.BoardBean;
 
  public class BoardDetailAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
    		
 		BoardDAO boarddao=new BoardDAO();
 	   	BoardBean boarddata=new BoardBean();

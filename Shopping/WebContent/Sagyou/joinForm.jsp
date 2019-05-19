@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-    pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
-<%request.setCharacterEncoding("euc-kr"); %>
+<%request.setCharacterEncoding("UTF-8"); %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate value = "${now}" pattern = "yyyy-MM-dd HH:mm:ss" var = "today"/>
@@ -34,14 +34,14 @@
 					<tr>
 						<td class="atrr" align=center>ID :</td>
 						<td class="atrr1"><input type="text" id="id" name="id"
-							maxlength="12" style="width: 180pt; height: 20pt;"> <span>4~12磊府
-								康巩 措家巩磊客 箭磊肺父 涝仿</span></td>
+							maxlength="12" style="width: 180pt; height: 20pt;"> <span>4~12鞛愲Μ
+								鞓侂 雽�靻岆鞛愳檧 靾瀽搿滊 鞛呺牓</span></td>
 					</tr>
 					<tr>
 						<td class="atrr" align=center>PASS :</td>
 						<td class="atrr1"><input type="password" id="pw" name="pw"
-							maxlength="12" style="width: 180pt; height: 20pt;"> <span>4~12磊府
-								康巩 措家巩磊客 箭磊肺父 涝仿</span></td>
+							maxlength="12" style="width: 180pt; height: 20pt;"> <span>4~12鞛愲Μ
+								鞓侂 雽�靻岆鞛愳檧 靾瀽搿滊 鞛呺牓</span></td>
 					</tr>
 					<tr>
 						<td class="atrr" align=center>PASS-RE :</td>
@@ -88,12 +88,12 @@
 						</font>
 						<td class="atrr1"><input type="text" name="postcode"
 							id="postcode" style="width: 70pt; height: 20pt;"
-							placeholder="快祈锅龋"> <input type="button"
-							onclick="execDaumPostcode()" value="快祈锅龋 茫扁"><br> <input
+							placeholder="鞖绊幐氩堩樃"> <input type="button"
+							onclick="execDaumPostcode()" value="鞖绊幐氩堩樃 彀娟赴"><br> <input
 							type="text" name="address1" id="address1"
-							style="width: 150pt; height: 20pt;" placeholder="林家"> <input
+							style="width: 150pt; height: 20pt;" placeholder="欤检唽"> <input
 							type="text" name="address2" id="address2"
-							style="width: 200pt; height: 20pt;" placeholder="惑技林家"></td>
+							style="width: 200pt; height: 20pt;" placeholder="靸侅劯欤检唽"></td>
 					</tr>
 					<tr>
 						<td class="atrr" align=center>PHONE:</td>

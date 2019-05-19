@@ -15,7 +15,7 @@ public class ProductCatelistAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
-		
+		request.setCharacterEncoding("utf-8");
 		String cate = request.getParameter("category");
 		
 		if(productdao.researchProduct(cate) == null) {

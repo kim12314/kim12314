@@ -14,7 +14,7 @@ public class CartDetailView implements Action {
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		CartDAO cartdao = new CartDAO();	
-		
+		request.setCharacterEncoding("utf-8");
 		int code = Integer.parseInt(request.getParameter("code"));
 		
 		if(cartdao.detailCart(code) == null) {

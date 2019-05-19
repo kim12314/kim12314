@@ -16,6 +16,7 @@ public class DeliveryAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		OrderBean orderbean = new OrderBean();
+		request.setCharacterEncoding("utf-8");
 		
 		orderbean.setOrder_id(request.getParameter("id"));
 		orderbean.setOrder_code(Integer.parseInt(request.getParameter("code")));
@@ -27,7 +28,7 @@ public class DeliveryAction implements Action{
 		orderbean.setOrder_hap(Integer.parseInt(request.getParameter("hap")));
 		orderbean.setOrder_result(request.getParameter("result"));
 		orderbean.setOrder_date(request.getParameter("date"));
-		orderbean.setOrder_point(Double.parseDouble(request.getParameter("point")));
+		orderbean.setOrder_point(Integer.parseInt(request.getParameter("point")));
 		
 		session.setAttribute("orderbean", orderbean);	
 		ActionForward forward = new ActionForward();

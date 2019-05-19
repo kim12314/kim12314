@@ -15,7 +15,7 @@ public class MemberInfoAction implements Action {
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		MemberDAO memberdao = new MemberDAO();
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
 		
 		if((session.getAttribute("id")==null) || (!((String)session.getAttribute("id")).equals("admin"))){
 			PrintWriter out = response.getWriter();

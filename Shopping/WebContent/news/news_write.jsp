@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-	pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="net.news.db.*" %>
 <%@page import="java.util.*"%>
 <%	
@@ -11,7 +11,7 @@
 
 <html>
 <head>
-	<title>MVC °Ô½ÃÆÇ</title>
+	<title>MVC ê²Œì‹œíŒ</title>
 	<link rel="stylesheet" href="css/style.css" />
 	<style type="text/css">
 
@@ -33,7 +33,7 @@ function addnews() {
 	<div id="container">
 		<div><jsp:include page="/header.jsp"></jsp:include></div>
 
-		<!-- °Ô½ÃÆÇ µî·Ï -->
+		<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 		<br>
 		<br>
 		<br>
@@ -42,14 +42,14 @@ function addnews() {
 		<br>
 		<br>
 		<center>
-			<div style="font-size:35pt; font-weight: bold">¼Ò½Ä</div>
+			<div style="font-size:35pt; font-weight: bold">ì†Œì‹</div>
 			<form action="./NewsAddAction.ne" method="post"
 				 name="newsform">
 				<table class="style_table" cellpadding="0" cellspacing="0">
 
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20" height="16">
-							<div align="center">Á¦ ¸ñ</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20" height="16">
+							<div align="center">ì œ ëª©</div>
 						</td>
 						<td><input name="NEWS_SUBJECT" type="text" size="50"
 							maxlength="100" style="font-size: 20" ;
@@ -57,8 +57,8 @@ function addnews() {
 					</tr>
 					
 					<tr>
-						<td style="font-family: µ¸À½; font-size: 20">
-							<div align="center">³» ¿ë</div>
+						<td style="font-family: ë‹ìŒ; font-size: 20">
+							<div align="center">ë‚´ ìš©</div>
 						</td>
 						<td><textarea name="NEWS_CONTENTS" cols="90" rows="30"></textarea>
 						</td>
@@ -73,6 +73,6 @@ function addnews() {
 			</form>
 		</center>
 	</div>
-	<!-- °Ô½ÃÆÇ µî·Ï -->
+	<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 </body>
 </html>

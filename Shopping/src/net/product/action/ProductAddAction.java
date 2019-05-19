@@ -15,7 +15,7 @@ public class ProductAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		ProductDAO productdao = new ProductDAO();
 		ProductBean productbean = new ProductBean();
-		
+		request.setCharacterEncoding("utf-8");
 		productbean.setProduct_category(request.getParameter("category"));
 		productbean.setProduct_name(request.getParameter("name"));
 		productbean.setProduct_count(Integer.parseInt(request.getParameter("count")));

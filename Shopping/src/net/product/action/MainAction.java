@@ -16,7 +16,7 @@ public class MainAction implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
-		
+		request.setCharacterEncoding("utf-8");
 		session.setAttribute("productcate", productdao.getCategory());
 		
 		ActionForward forward = new ActionForward();

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-	pageEncoding="euc-kr"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="net.news.db.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="euc-kr">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/style.css" />
 <%
@@ -27,7 +27,7 @@
 
 		<div><jsp:include page="/header.jsp" flush="false"></jsp:include></div>
 		<body>
-			<!-- °Ô½ÃÆÇ ¸®½ºÆ® -->
+			<!-- ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ -->
 			<br>
 			<br>
 			<br>
@@ -45,16 +45,16 @@
 				<tr align="center" valign="middle" bordercolor="#333333">
 					<td style="font-family: Tahoma; font-size: 17pt;" width="8%"
 						height="26">
-						<div align="center">¹øÈ£</div>
+						<div align="center">ë²ˆí˜¸</div>
 					</td>
 					<td style="font-family: Tahoma; font-size: 17pt;" width="50%">
-						<div align="center">Á¦¸ñ</div>
+						<div align="center">ì œëª©</div>
 					</td>
 					<td style="font-family: Tahoma; font-size: 17pt;" width="17%">
-						<div align="center">³¯Â¥</div>
+						<div align="center">ë‚ ì§œ</div>
 					</td>
 					<td style="font-family: Tahoma; font-size: 17pt;" width="11%">
-						<div align="center">Á¶È¸¼ö</div>
+						<div align="center">ì¡°íšŒìˆ˜</div>
 					</td>
 				</tr>
 
@@ -90,9 +90,9 @@
 					<td colspan=7 style="font-family: Tahoma; font-size: 15pt;">
 						<%
 							if (nowpage <= 1) {
-						%> [ÀÌÀü]&nbsp; <%
+						%> [ì´ì „]&nbsp; <%
  	} else {
- %> <a href="./NewsList.ne?page=<%=nowpage - 1%>">[ÀÌÀü]</a>&nbsp; <%
+ %> <a href="./NewsList.ne?page=<%=nowpage - 1%>">[ì´ì „]</a>&nbsp; <%
  	}
  %> <%
  	for (int a = startpage; a <= endpage; a++) {
@@ -106,9 +106,9 @@
  	}
  %> <%
  	if (nowpage >= maxpage) {
- %> [´ÙÀ½] <%
+ %> [ë‹¤ìŒ] <%
  	} else {
- %> <a href="./NewsList.ne?page=<%=nowpage + 1%>">[´ÙÀ½]</a> <%
+ %> <a href="./NewsList.ne?page=<%=nowpage + 1%>">[ë‹¤ìŒ]</a> <%
  	}
  %>
 					</td>

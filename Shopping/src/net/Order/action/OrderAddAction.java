@@ -16,10 +16,9 @@ import net.Delivery.db.*;
 
 public class OrderAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		HttpSession session = request.getSession();
 		OrderDAO orderdao = new OrderDAO();
 		OrderBean orderbean = new OrderBean();
-	
+		request.setCharacterEncoding("utf-8");
 		
 		orderbean.setOrder_id(request.getParameter("delivery_id"));
 		orderbean.setOrder_code(Integer.parseInt(request.getParameter("delivery_code")));
@@ -30,7 +29,7 @@ public class OrderAddAction implements Action{
 		orderbean.setOrder_hap(Integer.parseInt(request.getParameter("delivery_hap")));
 		orderbean.setOrder_result(request.getParameter("delivery_result"));
 		orderbean.setOrder_date(request.getParameter("delivery_date"));
-		orderbean.setOrder_point(Double.parseDouble(request.getParameter("delivery_point")));
+		orderbean.setOrder_point(Integer.parseInt(request.getParameter("delivery_point")));
 		
 		
 		if(!orderdao.insertOrder(orderbean)) {
