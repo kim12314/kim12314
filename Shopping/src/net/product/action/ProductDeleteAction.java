@@ -1,4 +1,3 @@
-
 package net.product.action;
 
 import java.io.PrintWriter;
@@ -46,6 +45,7 @@ public class ProductDeleteAction extends HttpServlet implements Action{
 		
 		forward.setResult(true);
 		forward.setPath("ProductListAction.po");
+		productdao.conClose();
 		return forward; 
 		
 	}

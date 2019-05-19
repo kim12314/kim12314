@@ -2,11 +2,10 @@ package net.Delivery.action;
 
 import java.io.PrintWriter;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.sun.javafx.collections.SetAdapterChange;
 
 import net.action.Action;
 import net.action.ActionForward;
@@ -17,7 +16,6 @@ public class DeliveryAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		OrderBean orderbean = new OrderBean();
-
 		
 		orderbean.setOrder_id(request.getParameter("id"));
 		orderbean.setOrder_code(Integer.parseInt(request.getParameter("code")));

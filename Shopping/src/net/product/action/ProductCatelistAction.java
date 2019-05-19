@@ -11,12 +11,14 @@ import net.action.ActionForward;
 import net.product.db.ProductBean;
 import net.product.db.ProductDAO;
 
-public class ProductListAction implements Action{
+public class ProductCatelistAction implements Action{
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
 		
-		if(productdao.getListProduct() == null) {
+		String cate = request.getParameter("category");
+		
+		if(productdao.researchProduct(cate) == null) {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('There is no data please try again')");
@@ -24,11 +26,12 @@ public class ProductListAction implements Action{
 			out.close();
 			return null;
 		}
+		
 		session.setAttribute("productcate", productdao.getCategory());
-		session.setAttribute("productbean", productdao.getListProduct());
+		session.setAttribute("productbean", productdao.researchProduct(cate));
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./product/Product_list.jsp?cate=All");
+		forward.setPath("./product/Product_list.jsp?cate="+cate);
 		productdao.conClose();
 		return forward;
 		

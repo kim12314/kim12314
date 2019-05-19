@@ -27,6 +27,7 @@ public class OrderCheckAction implements Action{
 			out.println("alert('Register is failed try again')");
 			out.print("</script>");
 			out.close();
+			orderdao.conClose();
 			return null;
 		}
 
@@ -35,5 +36,6 @@ public class OrderCheckAction implements Action{
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("ProductSaleView.po");
+		orderdao.conClose();
 		return forward;
 }}

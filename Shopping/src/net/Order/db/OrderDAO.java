@@ -33,7 +33,7 @@ public class OrderDAO {
 	// 디비에 주문 상품 등록하기
 	public boolean insertOrder(OrderBean orderbean) throws SQLException {
 
-		String sql = "insert into orders values(SQE_ORDER_CODE.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into orders values(SQE_ORDER_CODE.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 		java.sql.Timestamp date = java.sql.Timestamp.valueOf(orderbean.getOrder_date());
 		try {
 			pt = conn.prepareStatement(sql);
@@ -49,6 +49,8 @@ public class OrderDAO {
 			pt.setString(9, orderbean.getOrder_result());
 			pt.setTimestamp(10, date);
 			pt.setDouble(11, orderbean.getOrder_point());
+			
+			pt.executeUpdate();
 			
 			return true;
 

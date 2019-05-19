@@ -39,7 +39,6 @@ public class DeliveryFrontController extends HttpServlet implements javax.servle
 			}
 		}
 		else if(command.equals("/delivery/DeliveryAddAction.do")) {
-			
 			action = new DeliveryAddAction();
 			System.out.println("2");
 			try {
