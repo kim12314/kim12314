@@ -68,7 +68,38 @@ public class OrderDAO {
 		}
 		return false;
 	}
+	// 주문num가져오기
+	public int getNumOrder() throws SQLException {
+		String sql = "select last_number from user_sequences where sequence_name = 'SQE_ORDER_CODE'";
 
+		try {
+			pt = conn.prepareStatement(sql);
+			re = pt.executeQuery();
+			
+			if(!re.next()) {return 0;}
+			
+			int num = re.getInt("last_number");
+
+			return num;
+
+		} catch (RuntimeException er) {
+			er.printStackTrace();
+		} finally {
+			try {
+				if (re != null) {
+					re.close();
+					re = null;
+				}
+				if (pt != null) {
+					pt.close();
+					pt = null;
+				} // 닫아줌
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 	// 주문상품 리스트
 	public List getListOrder(String id) throws SQLException {
 		String sql = "select * from orders where order_id=?";
@@ -78,7 +109,6 @@ public class OrderDAO {
 			pt = conn.prepareStatement(sql);
 			pt.setString(1, id);
 			
-			re = pt.executeQuery();
 			re = pt.executeQuery();
 			while (re.next()) {
 				OrderBean orderbean = new OrderBean();

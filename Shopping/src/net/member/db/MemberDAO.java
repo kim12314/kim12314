@@ -178,6 +178,8 @@ public class MemberDAO {
 		  		
 		  		return list;
 		  		
+			}catch(SQLException se) {
+				se.printStackTrace();
 			}finally{
 				try{
 					if(re!=null){re.close(); re = null;}
@@ -186,6 +188,35 @@ public class MemberDAO {
 					e.printStackTrace();
 				}
 			}
+			return null;
+		}
+		
+		//아이디 찾기
+		public String findId(String name, String jumin) throws SQLException {
+			String sql = "select member_id from member where member_name = ? and member_jumin=?";
+			String id = null;
+			try{	   
+		  		pt = conn.prepareStatement(sql);
+		  		pt.setString(1, name);
+		  		pt.setString(2, jumin);
+		  		re = pt.executeQuery();
+		  		if(!re.next()) {
+			  		return null;
+		  		}	
+		  	id = re.getString("member_id");
+		  	return id;
+		  		
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}finally{
+				try{
+					if(re!=null){re.close(); re = null;}
+					if(pt!=null){pt.close(); pt = null;}  //닫아줌
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+			return null;
 		}
 	
 	//커넥션을 닫는다

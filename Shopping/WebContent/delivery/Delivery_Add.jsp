@@ -67,7 +67,9 @@ function input_Text(){
          <td>상품이름</td><td><input type="text" value="<%=bean.getOrder_name()%>" name="delivery_name"></td>
       </tr>
       <tr>
-         <td>상품이미지</td><td><img src="<%=bean.getOrder_image()%>" name="delivery_image" width="100" height="100"></td>
+         <td>상품이미지</td><td><img src="<%=bean.getOrder_image()%>" width="100" height="100">
+         <input type="hidden" value="<%=bean.getOrder_image()%>" name="delivery_image">
+         </td>
       </tr>
       <tr>
          <td>구매 수량</td><td><%=bean.getOrder_count()%>개<input type="hidden" value="<%=bean.getOrder_count()%>" name="delivery_count" id="delivery_count"></td>
@@ -85,12 +87,13 @@ function input_Text(){
          상품금액:<%=(bean.getOrder_hap())-3000 %>원
          <input type="hidden" value="<%=(bean.getOrder_hap())-3000 %>" id="getprice">
          <br>
-         사용하실 포인트:<input type="number" id="gogo"  value="<%=point%>"><button  onclick="input_Text()"><value>사용</value></button>
+         사용하실 포인트:<input type="number" id="gogo"  value="<%=point%>">
          <br>
          차감후 포인트:<input type="text" id="point" name="delivery_point" readonly>
          
          <br>
          합계:<input type="text" id="hap" name="delivery_hap" value="<%=(bean.getOrder_hap()-3000)%>" readonly>            
+            <button  onclick="input_Text()"><value>사용</value></button>
             <input type="hidden" value="<%=(bean.getOrder_hap())-3000 %>" name="delivery_hap" id="delivery_hap">
             <input type="hidden" value="<%=bean.getOrder_code() %>" name="delivery_code" id="delivery_code">
             <input type="hidden" value="<%=bean.getOrder_result() %>" name="delivery_result" id="delivery_result">
@@ -98,9 +101,6 @@ function input_Text(){
             <input type="hidden" value="<%=bean.getOrder_count() %>" name="delivery_count" id="delivery_count">
             
          </td>
-      </tr>
-      <tr>
-         <td colspan="2" align="right"><input type="submit" value="주문하기"></td>
       </tr>
    </table>
 </form>   

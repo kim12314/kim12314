@@ -1,22 +1,23 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@page import="net.Order.db.*"%>
 
 <%@page import="java.util.List"%>
 <%
 
-	List<OrderBean> beans = (List<OrderBean>)session.getAttribute("orderbean");
-	
+   List<OrderBean> beans = (List<OrderBean>)session.getAttribute("orderbean");
+   
 %>
 <%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <title>주문확인</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/style.css" />
 
-<link rel="stylesheet" href="css/style.css" />
-
+    
 <style type="text/css">
 h1 {
    font-size: 3em;
@@ -27,9 +28,9 @@ h1 {
 
 
 ul.tabs {
-	position:absolute;
-	top:300px;
-	left:170px;
+   position:absolute;
+   top:300px;
+   left:170px;
    margin: 0;
    padding: 0;
    float: left;
@@ -74,9 +75,9 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
 }
 
 .tab_container {
-	position:absolute;
-	top:333px;
-	left:170px;
+   position:absolute;
+   top:333px;
+   left:170px;
    border: 1px solid #999;
    border-top: none;
    clear: both;
@@ -120,8 +121,8 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
   
    <div id="container">
    <div><jsp:include page="/header.jsp" flush="false"></jsp:include></div>
-		 <div align="center">
-		 <br><br><br><br><br>
+       <div align="center">
+       <br><br><br><br><br>
       <font size=15 style="font-weight: bold">ORDER</font>
    </div>
 
@@ -133,7 +134,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
       </ul>
       <div class="tab_container">
          <div id="Order1" class="tab_content">
-			
+         
             <select id="Order_count" onchange="ing()">
                <option>전체 주문처리상태</option>
                <option>입금전</option>
@@ -177,33 +178,46 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
                   <td>취소/교환/반품</td>
                </tr>
                 
-            <b>취소/교환/반품</b>
-            <hr>
-               <%for(OrderBean bean : beans){ %>
-				<tr>
-					<td><%=bean.getOrder_date()%></td>
-					<td><a href="OrderDetailView.oo?code=<%=bean.getOrder_code() %>">
-         				<%=bean.getOrder_code() %></a></td>
-         			<td><%=bean.getOrder_num() %></td>
-					<td><img src="<%=bean.getOrder_image() %>" width="100" height="80"></td>
-					<td><%=bean.getOrder_count() %></td>
-					<td><%=bean.getOrder_hap()%></td>			
-                  	<td>
-                  		<%=bean.getOrder_result() %></td>	
-                  	<td>
-                  		<input type="hidden" value="<%=bean.getOrder_num()%>" name="delivery_num">
-                  		<a href = "DeliveryListAction.do?num=<%=bean.getOrder_num()%>"><button>배송정보</button></a>               		
-                  		<a href = "OrderDeleteAction.oo?num=<%=bean.getOrder_num()%>">
-							<button>취소</button></a>
-						<%if(bean.getOrder_result().equals("배송완료")) {%>	
-						<a href = "OrderRecallAction.oo?num=<%=bean.getOrder_num() %>">
-							<button>반품</button></a><%} %>
-				  	</td>
-                 </tr><%} %>	          
+          <b>주문상품 목록</b>
+            <hr> 
+               <%
+                  int a=0;
+               for(OrderBean bean : beans){ %>
+            <tr>
+               <td><%=bean.getOrder_date()%></td>
+               <td><a href="OrderReDetailView.oo?code=<%=bean.getOrder_code() %>">
+                     <%=bean.getOrder_code() %></a></td>
+                  <td id="order_num"><%=bean.getOrder_num() %></td>
+               <td><img src="<%=bean.getOrder_image() %>" width="100" height="80"></td>
+               <td><%=bean.getOrder_count() %></td>
+               <td><%=bean.getOrder_hap()%></td>         
+                     <td>
+                        <%=bean.getOrder_result() %>
+                     </td>     
+                     <td>
+                        <input type="hidden" value="<%=bean.getOrder_num()%>" name="delivery_num" id="delivery_num">                    
+                        <button class="num <%=a++%>" data-gogo-type="<%=bean.getOrder_num()%>">배송정보확인</button>  
+                        <a href = "OrderDeleteAction.oo?num=<%=bean.getOrder_num()%>"><button>취소</button></a>
+                   
+                  <%if(bean.getOrder_result().equals("배송완료")) {%>   
+                  <a href = "OrderRecallAction.oo?num=<%=bean.getOrder_num() %>">
+                     <button>반품</button></a><%}%>
+                 </td>
+                 </tr><%} %>             
                  </table>
-           <a href="./main.jsp"><button>메인 고고</button></a>
+           <a href="../main.jsp"><button>메인 고고</button></a>
          </div>
-         
+         <!-- 배달정보 새창으로보기 -->   
+                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+                   <script>
+                     $(document).ready(function(){
+                        $(".num").click(function(){
+                        var num = this.getAttribute('data-gogo-type')
+                         window.open("DeliveryListAction.do?num="+num, "주문목록", "width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes" ); 
+                      
+                        });
+                  });
+               </script>
          
          
          <div id="Order2" class="tab_content">
@@ -227,18 +241,16 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
 
             <table border="1">
                <tr>
-                  <td>주문일자</td>
+                  <td>취소일자</td>
                   <td>[주문번호]</td>
                   <td>이미지</td>
-                  <td>상품정보 수량</td>
                   <td>상품정보</td>
                   <td>수량</td>
                   <td>상품구매금액</td>
-                  <td>주문처리상태</td>
-                  <td>취소/교환/반품</td>
+                  <td>취소/반품</td>
                </tr>
                <tr>
-                  <td colspan="9" align="center">나니모 나깟다</td>
+                  <td colspan="7" align="center">♣패★치☆중◎</td>
                </tr>
 
             </table>
@@ -250,8 +262,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover {
    </div>
    </body>
    </html>
-   <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 
    <script type="text/javascript">
       $(document).ready(function() {
 

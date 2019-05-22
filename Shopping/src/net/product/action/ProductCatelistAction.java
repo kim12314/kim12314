@@ -16,6 +16,7 @@ public class ProductCatelistAction implements Action{
 		HttpSession session = request.getSession();
 		ProductDAO productdao = new ProductDAO();
 		request.setCharacterEncoding("utf-8");
+		
 		String cate = request.getParameter("category");
 		
 		if(productdao.researchProduct(cate) == null) {

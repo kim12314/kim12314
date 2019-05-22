@@ -21,6 +21,7 @@ implements javax.servlet.Servlet {
 		request.setCharacterEncoding("euc-kr");
 		ActionForward forward=null;
 		Action action=null;
+		MemberNILoginAction action2 =null;
 		
 		System.out.println(RequestURI);
 		System.out.println(contextPath);
@@ -93,7 +94,27 @@ implements javax.servlet.Servlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/MemberNILoginAction.mo")) {
+			 action = new MemberNILoginAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberFindIdActin.mo")) {
+			 action = new MemberFindIdActin();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/foundid.mo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./Sagyou/found_id.jsp");
 		}
+		
+		
 		
 		
 		if(forward.isRedirect()){

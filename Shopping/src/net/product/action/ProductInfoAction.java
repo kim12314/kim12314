@@ -38,7 +38,6 @@ public class ProductInfoAction implements Action{
     	      return null;
     	  }
     	  session.setAttribute("infoproduct", productdao.researchProduct(category));
-    	  List<ProductBean> beans = (List<ProductBean>)session.getAttribute("infoproduct"); 
     	   
     	  ActionForward forward = new ActionForward();
     	  forward.setRedirect(false);

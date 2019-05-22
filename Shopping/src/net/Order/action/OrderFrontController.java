@@ -31,23 +31,22 @@ public class OrderFrontController extends HttpServlet implements javax.servlet.S
 				e.printStackTrace();
 			}
 		}else if(command.equals("/delivery/OrderAddAction.oo")) {
+	         action = new OrderAddAction();
+	         try {
+	            forward = action.execute(request, response);
+	         }catch(Exception e) {
+	            e.printStackTrace();
+	         }
+	      }else if(command.equals("/OrderAddAction.oo")) {
 			action = new OrderAddAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/delivery/OrderListAction.oo")) {
-			action = new OrderListAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		}else if(command.equals("/OrderListAction.oo")) {
-				action = new OrderListAction();
 				System.out.println("5");
-
+				action = new OrderListAction();
 				try {
 					forward = action.execute(request, response);
 				}catch(Exception e) {
@@ -74,7 +73,14 @@ public class OrderFrontController extends HttpServlet implements javax.servlet.S
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}else if(command.equals("/order/OrderDeleteAction.oo")) {
+	         action = new OrderDeleteAction();
+	         try {
+	            forward = action.execute(request, response);
+	         }catch(Exception e) {
+	            e.printStackTrace();
+	         }
+	      }
 		
 		
 //		else if(command.equals("OrderListAction.oo")) {

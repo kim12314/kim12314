@@ -11,25 +11,30 @@
 <style type="text/css">
 img {
 	image-rendering: auto;
-	
 }
 
+table {
+ border-top: 1px solid #adadad;
+ border-collapse : collapse;
+}
+tr,th, td{
+border-bottom: 1px solid #adadad;
+padding: 4px;
+}
 table, tr, td {
-	border: 1px #000000;
 	vertical-align: top;
 	text-align: center;
-	font-size: 25pt;
+	font-size: 20pt;
 }
 
 th {
 	/*        border: 1px solid #000000; */
 	font-weight: bold;
 	vertical-align: top;
-	background: #ededed;
 }
 
 a {
-	font-size: 25pt;
+	font-size: 20pt;
 	color: #000000;
 }
 </style>
@@ -51,12 +56,13 @@ a {
 
 	<jsp:useBean id="now" class="java.util.Date" />
 	<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="date" />
-	<img style="
-	width: 360px; height: 360px;" src="<%=((ProductBean) session.getAttribute("detailProduct")).getProduct_image()%>" />
-	
-	<table>
+	<br><br><br><br>
+	<img	 style="	width: 450px; height: auto; overflow: hidden;" 
+	src="<%=((ProductBean) session.getAttribute("detailProduct")).getProduct_image()%>" />
+<br><br><br>
+	<table >
 		<tr>
-			<th colspan="2">상품등록</th>
+			<th colspan="2">상품정보</th>
 		<tr>
 			<th>상품코드</th>
 			<td><%=((ProductBean) session.getAttribute("detailProduct")).getProduct_code()%>
@@ -69,8 +75,8 @@ a {
 		</tr>
 
 		<tr>
-			<th>상품이름
-			</td>
+			<th>상품이름 </th>
+			
 			<td><%=((ProductBean) session.getAttribute("detailProduct")).getProduct_name()%></td>
 		</tr>
 
@@ -114,7 +120,7 @@ a {
 	</table>
 	<br>
 	<br>
-	<a href="ProductUpdateView.po">수정</a> &emsp; &emsp;
+	<a href="ProductUpdateView.po?code=<%=((ProductBean) session.getAttribute("detailProduct")).getProduct_code()%>">수정</a> &emsp; &emsp;
 	<a href="ProductList.po">목록</a>
 	<!-- 
 valign=top style="font-family: 돋음; font-size: 12" id="deteail"

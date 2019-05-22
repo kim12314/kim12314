@@ -30,28 +30,14 @@ import net.action.ActionForward;
 			   forward=new ActionForward();
 			   forward.setRedirect(false);
 			   forward.setPath("./news/news_write.jsp");
-		   }/*else if(command.equals("/BoardModify.bo")){
-			   action = new BoardModifyView();
-			   try{
-				   forward=action.execute(request, response);
-			   }catch(Exception e){
-				   e.printStackTrace();
-			   }
-	 	   }*/else if(command.equals("/NewsAddAction.ne")){
+		   }else if(command.equals("/NewsAddAction.ne")){
 			   action  = new NewsAddAction();
 			   try {
 				   forward=action.execute(request, response );
 			   } catch (Exception e) {
 				   e.printStackTrace();
 			   }
-		   }/*else if(command.equals("/BoardModifyAction.bo")){
-			   action = new BoardModifyAction();
-			   try{
-				   forward=action.execute(request, response);
-			   }catch(Exception e){
-				   e.printStackTrace();
-			   }
-		   }*/else if(command.equals("/NewsListAction.ne")){
+		   }else if(command.equals("/NewsListAction.ne")){
 			   action = new NewsListAction();
 			   try{
 				   forward=action.execute(request, response);

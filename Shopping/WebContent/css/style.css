@@ -12,47 +12,106 @@ html,body {   height: 100%; margin: 0; padding: 0; }
 #container {
 min-height: 100%; 
 position: relative;
-margin-left: 60px;
 
 }
 
- 
-
-
 .index img {
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 250px;
-	height: 300px;
+   position: relative;
+   top: 0;
+   left: 0;
+   width: 250px;
+   height: 300px;
 }
 
 #index {
-	margin: 5px 25px;
-	padding: 0;
-	float: left;
+   margin: 5px 25px;
+   padding: 0;
+   float: left;
 }
 
-#header {
-	width: 100%;
-	height: 20px;
-	padding: 10px;
-	margin-bottom: 5px;
+
+
+.header li {
+   float: left;
+   padding: 0px;
+   list-style: none;
 }
 
-#header a {
-	padding: 10px;
-	float: left;
-	border: 0px;
-	color: #000000;
-	text-decoration: none;
+.header li a {
+   background: none;
+   color: #000000; /* 상위 메뉴 글자 색  */
+   display: block;
+   font-size: 15px;
+   font-weight: nomal;
+   line-height: 50px;
+   margin: 0px;
+   padding: 2px 20px;
+   text-align: left;
+   text-decoration: none;
 }
 
-#header a:hover {
-	border: 0px;
-	color: #adadad;
-	text-decoration: none;
+.header li a:hover, .menubar ul li:hover a {
+   background: none;/*  상위-메뉴 마우스 오버시 배경 색  */
+   color: #adadad;
+   text-decoration: none;
 }
+
+.header li ul {
+   float: left;
+   display: none; /* 평상시에는 서브메뉴가 안보이게 하기 */
+   height: 15;
+   padding: 0px;
+   margin: 0px;
+   border: 0px;1
+   position: relative;
+   width: 180px;
+   z-index: 1;
+
+}
+
+.header li:hover ul {
+   float: left;
+   display: block; /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
+}
+
+.header li li {
+   background: none;
+   display: block;
+   float: none;
+   margin: 0px;
+   padding: 0px;
+   width: 125px; /* 하위 메뉴 가로 길이 */
+}
+
+.header li:hover li a {
+   background-color: #f1f1f1;
+}
+
+.header li ul a {
+   display: block;
+   height: 50px;
+   font-size: 15px;
+   font-weight: normal;
+   margin: 0px;
+   text-align: left;
+}
+
+.header li ul a:hover, .header li ul li:hover a {
+   /* background: rgb(237, 234, 234);
+ */   border: 0px;
+   color: #adadad; /* 하위 메뉴 마우스 오버 시 글자 색 */
+   text-decoration: none;
+}
+
+.header p {
+   clear: left;.   width: 100%;
+}
+
+.header  {
+      width: 100%;
+}
+
+
 
 .menubar li {
 	float: left;
@@ -87,7 +146,7 @@ margin-left: 60px;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	position: absolute;
+	position: relative;
 	width: 200px;
 	z-index: 1;
 
@@ -206,9 +265,8 @@ text-align: center;
 	width: 1270px;
 	height: 680px;
 	top: 60px;
-	left:620px;
-	overflow: hidden;
-
+float: right;
+margin-right: 50px;
 }
 
 .banner {

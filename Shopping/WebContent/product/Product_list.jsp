@@ -36,16 +36,30 @@ table.style_Table td {
 %>
 <br><br><br><br><br><br>
 <div>
-	<select>
+	<select id = "selectcate">
+		<option disabled selected >Select the Category</option>
+		<option value = "all">Show All</option>
 	<%for(int i=0;i<cate.size();i++){ %>
 		<option><%=cate.get(i)%></option>
-	<%} %>
+	<%}%>
 	</select>
-
+	<button id="buttoncate">확인</button>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#buttoncate").click(function(){
+				var cate = document.getElementById("selectcate").value;
+				if(cate == "all"){
+					location.href ="ProductListAction.po";
+				}else{
+					location.href = "ProductCatelistAction.po?category="+cate;	
+				}
+			});
+		});
+	</script>
 </div>
-<div style="font-size:30pt;font-weight: bold" align="center">상품 목록</div>
+<div style="font-size:30pt;font-weight: bold" align="center"><%=request.getParameter("cate")%>상품 목록</div>
 <br><br>
-<table class="style_Table" border="0"align="center">
+<table class="style_Table" border="0" align="center">
 
 	<tr align="center" style=font-size:17pt;>
 		<td></td>
@@ -97,9 +111,9 @@ table.style_Table td {
 			<div class="checkBox">
    				<input type="checkbox" name="chBox" class="chBox" data-proNum="<%=bean.getProduct_code()%>" />
  				<script>
-  				$(".chBox").click(function(){
-  					$("#allCheck").prop("checked",false);
-  				});
+  					$(".chBox").click(function(){
+  						$("#allCheck").prop("checked",false);
+  					});
   			</script>
  			</div>
 		</td>
@@ -110,11 +124,6 @@ table.style_Table td {
 		<td><%=bean.getProduct_count() %></td>
 		<td><%=bean.getProduct_price() %></td>
 		<td><%=bean.getProduct_date() %></td>
-		<td> <!--물품삭제버튼-->
-			<div class= "delete">
-				<button type = "button" class = "delete_btn" data-proNum="<%=bean.getProduct_code()%>">삭제</button>	
-			</div>
-		</td>
 	</tr>
 	<%} %>
 	
@@ -122,7 +131,6 @@ table.style_Table td {
 
 <div align="center">
 <a href = "ProductAddForm.po"><button  style="font-size:15pt">등록</button></a>
-<input type="button" value = "삭제" onclick = "delete" style="font-size:15pt" />
 </div>
 </div>
 

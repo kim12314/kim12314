@@ -13,19 +13,14 @@ import net.news.db.NewsDAO;
 
  public class NewsListAction implements Action {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
-		HttpSession session  =request.getSession();
-		NewsDAO newsdao=new NewsDAO();//DB ����
 		request.setCharacterEncoding("utf-8");
-		
+		HttpSession session  =request.getSession();
+		NewsDAO newsdao=new NewsDAO();
 		List newslist=new ArrayList();
-		
+
 		String id = (String)session.getAttribute("id");
 		
 		if(id ==null) {
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('There is no data please try again')");
-			out.print("</script>");
 			ActionForward forward= new ActionForward();
 			forward.setRedirect(false);
 	   		forward.setPath("./Sagyou/loginForm.jsp");

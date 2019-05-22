@@ -16,6 +16,7 @@ public class OrderDetailView implements Action{
 		OrderDAO orderdao = new OrderDAO();	
 		request.setCharacterEncoding("utf-8");
 		int code = Integer.parseInt(request.getParameter("code"));
+		System.out.println(code);
 		
 		if(orderdao.detailOrder(code) == null) {
 			PrintWriter out = response.getWriter();
@@ -31,7 +32,7 @@ public class OrderDetailView implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("ProductSaleView.po");
+		forward.setPath("ProductSaleView.po?code="+code);
 		orderdao.conClose();
 		return forward;
 		

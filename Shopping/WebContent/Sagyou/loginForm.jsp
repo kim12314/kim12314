@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -89,6 +92,11 @@ Button {
 </style>
 <link rel="stylesheet" href="css/style.css" />
 <title>Login</title>
+<script type="text/javascript">
+	function findid(){
+		window.open('Sagyou/find_id.jsp','아이디 찾기', 'top=300px, left=400px, width=400, height=250, location=no, status=no, toolbar=no, menubar=no, scrollbars=no, resizable=yes');
+	}
+</script>
 </head>
 <body>
 	<div id="container">
@@ -126,7 +134,7 @@ Button {
 						<tr>
 							<td>
 								<div>
-									<a href="main.jsp">아이디 찾기</a>
+									<a href="javascript:findid()">아이디 찾기</a>
 								</div>
 							</td>
 							<td>
@@ -142,19 +150,19 @@ Button {
 	</div>
 	
 	
-	<div id="naverIdLogin"></div>
-	
-	<script type="text/javascript">
-		var naverLogin = new naver.LoginWithNaverId(
-			{
-				clientId:"817YOaY39wvn8CRMKIfT",
-				callbackUrl:"http://localhost/Shopping/callback.jsp",
-				isPopup: false,
-				loginButton: {color: "green", type: 3, height: 60} 
-			}
-		);
-
-		naverLogin.init();
-</script>
+	<div id="naverIdLogin">
+		<%
+   		String clientId = "817YOaY39wvn8CRMKIfT";//애플리케이션 클라이언트 아이디값";
+    	String redirectURI = URLEncoder.encode("http://localhost:8090/Shopping/MemberNILoginAction.mo", "UTF-8");
+    	SecureRandom random = new SecureRandom();
+   	 	String state = new BigInteger(130, random).toString();
+    	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    	apiURL += "&client_id=" + clientId;
+    	apiURL += "&redirect_uri=" + redirectURI;
+    	apiURL += "&state=" + state;
+    	session.setAttribute("state", state);
+ 		%>
+  		<a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+	</div>
 </body>
 </html>
